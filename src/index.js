@@ -1,6 +1,6 @@
-import reduxConnect from './src/reduxConnectDecorator';
-import withRouter from './src/withRouterDecorator';
-import fetchData from './src/fetchDataDecoretor';
+import reduxConnect from './lib/reduxConnectDecorator';
+import withRouter from './lib/withRouterDecorator';
+import fetchData from './lib/fetchDataDecoretor';
 
 export default {
   reduxConnect,
