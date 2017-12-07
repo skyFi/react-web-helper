@@ -1,9 +1,3 @@
-import reduxConnect from './src/reduxConnectDecorator';
-import withRouter from './src/withRouterDecorator';
-import fetchData from './src/fetchDataDecoretor';
+'use strict';
 
-export default {
-  reduxConnect,
-  withRouter,
-  fetchData
-};
+require('./lib/index');
