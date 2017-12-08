@@ -2,15 +2,19 @@ import React from 'react';
 import hoistNonReactStatic from 'hoist-non-react-statics';
 import { connect } from 'react-redux';
 
-const fetchData = () => {
+let isFirstLoadOnServer = true;
+const fetchData = (notPreventFirstFetchOnBroswer = false) => {
   return (WrappedComponent) => {
     class Enhance extends React.Component {
       componentDidMount() {
-        if (WrappedComponent.fetchData instanceof Function) {
-          WrappedComponent.fetchData({
-            dispatch: this.props.dispatch,
-            match: this.props.match
-          });
+        if (isFirstLoadOnServer || notPreventFirstFetchOnBroswer) {
+          isFirstLoadOnServer = false;
+          if (WrappedComponent.fetchData instanceof Function) {
+            WrappedComponent.fetchData({
+              dispatch: this.props.dispatch,
+              match: this.props.match
+            });
+          }
         }
       }
       render() {

@@ -74,7 +74,7 @@ export default Example;
 import React from 'react';
 import { reduxConnect, withRouter, fetchData } from 'react-web-helper';
 
-@fetchData()
+@fetchData(/*notPreventFirstFetchOnBroswer*/)
 @withRouter()
 @reduxConnect(/*mapStateToProps, etc.*/)
 class Example extends React.Component {
@@ -82,3 +82,7 @@ class Example extends React.Component {
 }
 export default Example;
 ```
+
+* @params {boolean} notPreventFirstFetchOnBroswer
+
+not frevent first load fetchData on broswer, default value is `false`.
