@@ -7,14 +7,13 @@ const fetchData = (notPreventFirstFetchOnBroswer = false) => {
   return (WrappedComponent) => {
     class Enhance extends React.Component {
       componentDidMount() {
-        if (isFirstLoadOnServer || notPreventFirstFetchOnBroswer) {
+        if (isFirstLoadOnServer && !notPreventFirstFetchOnBroswer) {
           isFirstLoadOnServer = false;
-          if (WrappedComponent.fetchData instanceof Function) {
-            WrappedComponent.fetchData({
-              dispatch: this.props.dispatch,
-              match: this.props.match
-            });
-          }
+        } else if (WrappedComponent.fetchData instanceof Function) {
+          WrappedComponent.fetchData({
+            dispatch: this.props.dispatch,
+            match: this.props.match
+          });
         }
       }
       render() {
