@@ -86,3 +86,26 @@ export default Example;
 * @params {boolean} notPreventFirstFetchOnBroswer
 
 not frevent first load fetchData on broswer, default value is `false`.
+
+#### helmet for smart set page header, eg: title, keywords, description, etc.
+
+```JavaScript
+import React from "react";
+import { Helmet } from "react-web-helper";
+
+class Application extends React.Component {
+  render () {
+    return (
+        <div className="application">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>My Title</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+            ...
+        </div>
+    );
+  }
+};
+```
+helmet [more](https://github.com/nfl/react-helmet) doc.
